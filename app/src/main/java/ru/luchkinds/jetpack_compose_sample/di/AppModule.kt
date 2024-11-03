@@ -5,6 +5,7 @@ import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -13,14 +14,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 // import retrofit2.converter.gson.GsonConverterFactory
 import ru.luchkinds.jetpack_compose_sample.data.db.AppDatabase
+import ru.luchkinds.jetpack_compose_sample.data.remote.SampleRemote
 import ru.luchkinds.jetpack_compose_sample.data.services.SampleService
+import ru.luchkinds.jetpack_compose_sample.domain.services.ISampleService
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
     @Provides
-    fun providesBaseUrl(): String = ""
+    fun providesBaseUrl(): String = "https://jsonplaceholder.typicode.com/"
 
     @Provides
     @Singleton
@@ -32,15 +35,21 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideSampleService(retrofit: Retrofit): SampleService = retrofit.create(SampleService::class.java)
+    fun provideSampleRemote(retrofit: Retrofit): SampleRemote = retrofit.create(SampleRemote::class.java)
 
     @Provides
     @Singleton
-    fun provideRoom(applicationContext: Context) = Room.databaseBuilder(
+    fun provideRoom(@ApplicationContext applicationContext: Context) = Room.databaseBuilder(
         context = applicationContext,
         klass = AppDatabase::class.java,
         name = "database.db",
     )
         .createFromAsset("room_article.db")
         .build()
+
+    @Provides
+    @Singleton
+    fun provideSampleService(remote: SampleRemote): ISampleService {
+        return SampleService(remote)
+    }
 }

@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "ru.luchkinds.jetpack_compose_sample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "ru.luchkinds.jetpack_compose_sample"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 26
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -59,7 +59,7 @@ android {
 dependencies {
     // hilt
     implementation(libs.hilt.android)
-    // implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.navigation)
     ksp(libs.hilt.compiler)
     // retrofit
     implementation(libs.retrofit)
@@ -82,6 +82,9 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     // datetime
     implementation(libs.kotlinx.datetime)
+    // workManager
+    implementation(libs.androidx.work.runtime)
+    implementation(libs.hilt.work)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

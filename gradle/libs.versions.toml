@@ -4,6 +4,7 @@ agp = "8.6.1"
 coil = "2.7.0"
 datastorePreferences = "1.1.1"
 hiltNavigationCompose = "1.2.0"
+hiltWork = "1.2.0"
 kotlin = "2.0.20"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -12,7 +13,7 @@ espressoCore = "3.6.1"
 kotlinxDatetime = "0.6.1"
 lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.2"
-composeBom = "2024.09.03"
+composeBom = "2024.10.01"
 ksp = "2.0.20-1.0.24"
 hilt = "2.52"
 loggingInterceptor = "4.12.0"
@@ -21,14 +22,15 @@ converterGson = "2.11.0"
 lifecycleViewmodelCompose = "2.8.6"
 room = "2.6.1"
 runtimeLivedata = "1.7.3"
-navigationCompose = "2.8.2"
+navigationCompose = "2.8.3"
 serealizationJson = "1.7.3"
 converterKotlinxSerealization = "2.11.0"
+workRuntimeKtx = "2.10.0"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -45,6 +47,8 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 #hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltWork" }
 #retrofit
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
