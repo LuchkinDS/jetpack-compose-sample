@@ -7,12 +7,12 @@ import androidx.work.WorkerParameters
 import ru.luchkinds.jetpack_compose_sample.domain.services.ISampleService
 import javax.inject.Inject
 
-class SampleWorkerFactory @Inject constructor(
+class SampleExpeditedWorkerFactory @Inject constructor(
     private val service: ISampleService
 ): WorkerFactory() {
     override fun createWorker(
         appContext: Context,
         workerClassName: String,
         workerParameters: WorkerParameters
-    ): ListenableWorker = SampleWorker(service, appContext, workerParameters)
+    ): ListenableWorker = SampleExpeditedWorker(service, appContext, workerParameters)
 }
